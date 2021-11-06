@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<style>
+    .container{
+        margin-top: 100px;
+    }
+    .welcome{
+        color: #fff;
+        justify-content: center;
+        text-align: center;
+        font-size: 4em;
+
+    }
+    .join{
+        text-align: center;
+        margin-left: 43px;
+        width: 14em;
+        height: 3em;
+    }
+    .welcome span{
+        color: #20AE48;
+        font-weight: bold;
+    }
+
+</style>
+<div class="container">
+    <div class="row">
+      <div class="col-lg-6 d-flex flex-column justify-content-center">
+        <h1 data-aos="fade-up" class="welcome">WELCOME TO NUSRAT <span class="ict">ICT CLUB</span></h1>
+        <div data-aos="fade-up" data-aos-delay="600">
+          <div class="text-center text-lg-start">
+            <a href="#" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                <button class="btn btn-primary join"  type="button">Join Now</button>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
+        <img src="{{url_for('static', filename='imgs/main_img.png')}}" class="img-fluid" alt="">
+      </div>
+    </div>
+  </div>
+
+
+{% endblock content %}

@@ -1,0 +1,26 @@
+@font-face {
+    font-family: r_condense;
+    src: url(fonts/RobotoCondensed-Regular.ttf);
+}
+
+body{
+    background-color: #293745;
+    font-family: r_condense;
+}
+nav{
+    background-color: #293745;
+}
+
+
+.navbar-nav .nav-item .nav-link{
+    color: white;
+    cursor: pointer;
+    font-size: 24px;
+}
+.navbar-nav .nav-item .nav-link.home{
+    font-weight: bold;
+}
+form .gallery{
+    width: 14em;
+    height: 3em;
+}
