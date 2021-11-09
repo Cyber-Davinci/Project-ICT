@@ -3,6 +3,9 @@
     src: url(fonts/RobotoCondensed-Regular.ttf);
 }
 
+*{
+    box-sizing: border-box;
+}
 body{
     background-color: #293745;
     font-family: r_condense;
@@ -13,7 +16,7 @@ nav{
 
 
 .navbar-nav .nav-item .nav-link{
-    color: white;
+    color: honeydew;
     cursor: pointer;
     font-size: 24px;
 }
@@ -23,4 +26,101 @@ nav{
 form .gallery{
     width: 14em;
     height: 3em;
+}
+.content{
+    padding: 40px;
+}
+.about{
+    padding: 60px 0;
+    overflow: hidden;
+}
+.about h3{
+ color: #018786;
+ text-transform: uppercase;
+ font-weight: 700;
+ font-size: 16px;
+ text-decoration:underline ;
+}
+.about h2{
+ color: honeydew;
+ font-size: 24px;
+ font-weight: 700;
+}
+.about p{
+ margin: 15px 0 30px 0;
+ line-height: 24px;
+ color: #23b176;
+}
+.about .cont{
+ background-color: #293745;
+}
+
+.welcome{
+    color: #fff;
+    justify-content: center;
+    text-align: center;
+    font-size: 4em;
+
+}
+.join{
+    text-align: center;
+    margin-left: 43px;
+    width: 14em;
+    height: 3em;
+}
+.welcome span{
+    color: #20AE48;
+    font-weight: bold;
+}
+.container.home{
+    margin-top: 100px;
+}
+
+
+
+section{
+    padding: 60px 0;
+    overflow: hidden;
+    display: block;
+
+}
+.section-header{
+    text-align: center;
+}
+.section-header h2 {
+    font-size: 13px;
+    letter-spacing: 1px;
+    font-weight: 700;
+    margin: 0;
+    color: #018786;
+    text-transform: uppercase;
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+.events .box .card-title{
+    text-align: center;
+    color: #018786;
+    font-weight: bold;
+}
+.events .box .card-text{
+    color: rgb(85, 85, 85);
+
+}
+.events .box .card-text .text-muted{
+    font-weight: Bold;
+    font-size: 16px;
+
+}
+.events .events_h2{
+    font-size: 26px;
+}
+.events .events_p{
+    font-size: 20px;
+    color: honeydew;
 }
