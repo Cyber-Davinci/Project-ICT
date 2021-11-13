@@ -1,0 +1,172 @@
+{% extends "layout.html"%}
+
+{% block main %}
+
+<!-- Home section starts here -->
+<div class="container  home" id="home">
+    <div class="row">
+      <div class="col-lg-6 d-flex flex-column justify-content-center">
+        <h1  class="welcome">WELCOME TO NUSRAT <span class="ict">ICT CLUB</span></h1>
+        <div>
+          <div class="text-center text-lg-start">
+            <a href="/join" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                <button class="btn btn-primary join"  type="button">Join Now</button>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 hero-img">
+        <img src="{{url_for('static', filename='imgs/main_img.png')}}" class="img-fluid" alt="">
+      </div>
+    </div>
+  </div>
+
+<!-- Home section ends here -->
+
+<main id="main">
+  <!-- ======= About Section ======= -->
+  <section id="about" class="about">
+
+    <div class="container shadow-lg p-4 mb-4 bg-white" >
+      <div class="row gx-0 ">
+
+        <div class="col-lg-6 d-flex flex-column justify-content-center cont " >
+          <div class="content">
+            <h3>Who We Are</h3>
+            <h2>Expedita voluptas omnis cupiditate totam eveniet nobis sint iste. Dolores est repellat corrupti reprehenderit.</h2>
+            <p>
+              Quisquam vel ut sint cum eos hic dolores aperiam. Sed deserunt et. Inventore et et dolor consequatur itaque ut voluptate sed et. Magnam nam ipsum tenetur suscipit voluptatum nam et est corrupti.
+            </p>
+            <div class="text-center text-lg-start">
+              <a href="#" class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
+                <span>Read More</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 d-flex align-items-center">
+          <img src="{{url_for('static', filename='/imgs/about.jpg')}}" class="img-fluid" alt="">
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- End About Section -->
+
+<!-- Event section starts here -->
+<section id="events" class="events">
+
+<div class="container" >
+
+<header class="section-header">
+  <h2 class="events_h2">Our Events</h2>
+  <p class="events_p">These are some of the events </p>
+</header>
+
+<div class="row">
+
+  <div class="col-lg-4 card mb-3">
+    <div class="box">
+      <img src="{{url_for('static', filename='assets/img/values-1.png')}}" class="img-fluid card-img-top" alt="">
+      <div class="card-body">
+         <h3 class="card-title">Ad cupiditate sed est odio</h3>
+      <p class="card-text">Eum ad dolor et. Autem aut fugiat debitis voluptatem consequuntur sit. Et veritatis id.</p>
+      <p class="card-text"><small class="text-muted">Scheduled for. Friday May 24</small></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4 card mb-3">
+    <div class="box">
+      <img src="{{url_for('static', filename='assets/img/values-2.png')}}" class="img-fluid card-img-top" alt="">
+      <div class="card-body">
+         <h3 class="card-title">Ad cupiditate sed est odio</h3>
+      <p class="card-text">Eum ad dolor et. Autem aut fugiat debitis voluptatem consequuntur sit. Et veritatis id.</p>
+      <p class="card-text"><small class="text-muted">Scheduled for. Friday May 24</small></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4 card mb-3">
+    <div class="box">
+      <img src="{{url_for('static', filename='assets/img/values-3.png')}}" class="img-fluid card-img-top" alt="">
+      <div class="card-body">
+         <h3 class="card-title">Ad cupiditate sed est odio</h3>
+      <p class="card-text">Eum ad dolor et. Autem aut fugiat debitis voluptatem consequuntur sit. Et veritatis id.</p>
+      <p class="card-text"><small class="text-muted">Scheduled for. Friday May 24</small></p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+</section>
+<!-- Event section ends here -->
+
+<!-- Executive Board Starts here -->
+
+<section id="executives" class="executives">
+
+<!-- For demo purpose -->
+<!-- Carousel -->
+<div class="section-header">
+<h2>Board of Executive</h2>
+</div>
+<div id="demo" class="carousel slide" data-bs-ride="carousel">
+
+<!-- Indicators/dots -->
+<div class="card">
+<div class="carousel-indicators">
+  <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+  <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+  <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+</div>
+
+<!-- The slideshow/carousel -->
+<div class="card-body">
+  <div class="carousel-inner">
+
+  <div class="carousel-item active">
+    <div class="card-header card-img rounded-circle">
+      <img src="{{url_for('static', filename='imgs/president1.jpg')}}" alt="Los Angeles" class="d-block w-100 rounded-circle">
+    </div>
+    <div class="card-content post">
+      <h1>Suabou Sanneh</h1>
+      <p>President</p>
+    </div>
+  </div>
+  <div class="carousel-item ">
+    <div class="card-header card-img rounded-circle">
+      <img src="{{url_for('static', filename='imgs/president3.jpg')}}" alt="Los Angeles" class="d-block w-100 rounded-circle">
+    </div>
+    <div class="card-content post">
+      <h1>Ebrima O Touray</h1>
+      <p>President</p>
+    </div>
+  </div>
+  <div class="carousel-item ">
+    <div class="card-header card-img rounded-circle">
+      <img src="{{url_for('static', filename='imgs/president2.jpg')}}" alt="Los Angeles" class="d-block w-100 rounded-circle">
+    </div>
+    <div class="card-content post">
+      <h1>Abdoulie Nyass</h1>
+      <p>President</p>
+    </div>
+  </div>
+
+</div>
+</div>
+
+
+<!-- Left and right controls/icons -->
+<button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+  <span class="carousel-control-prev-icon"></span>
+</button>
+<button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+  <span class="carousel-control-next-icon"></span>
+</button>
+
+</div>
+</div>
+<!-- Executive Board ends here -->
+
+{% endblock %}

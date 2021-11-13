@@ -64,7 +64,7 @@ form .gallery{
 }
 .join{
     text-align: center;
-    margin-left: 43px;
+    margin-left: 4px;
     width: 14em;
     height: 3em;
 }
@@ -123,4 +123,73 @@ section{
 .events .events_p{
     font-size: 20px;
     color: honeydew;
+}
+
+.carousel .card{
+    background-color: #293745;
+    border-top: 4px solid #dee4e3;
+    border-bottom: 6px solid #70f863;
+}
+.carousel .card:hover{
+
+    transition-duration: .5s;
+}
+.carousel-item .card-header{
+    width: 250px;
+    border-radius: 50%;
+    margin: 0 auto;
+
+}
+
+ .carousel-item .card-header img{
+    transition-property: border;
+    border: 10px solid #136156;
+}
+
+ .carousel-item .card-header img:hover{
+    border: 5px solid #293745;
+    transition-duration: .4s;
+   
+}
+
+.carousel .post{
+    color: #fff;
+    text-align: center;
+    margin-bottom: 10px;
+    padding-bottom: 30px;
+}
+.carousel .post h1{
+    color: #fff;
+    padding-bottom: 1px;
+    padding-top: 10px;
+
+}
+.container form{
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+.container form .form-group{
+    margin-bottom: 10px;
+}
+.container form label{
+    color: #fff;
+    font-size: 18px;
+}
+.container form input{
+    background-color:#293745 ;
+
+}
+.container form textarea{
+    background-color:#293745 ;
+}
+
+
+.user-img{
+    margin:0 auto;
+    align-self: center;
+    width: 200px;
+}
+.join_container{
+    margin-top: 20px;
+    padding-top: 20px;
 }
