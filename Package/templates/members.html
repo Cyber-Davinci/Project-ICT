@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+{% block main %}
+<style>
+    .card-header{
+        text-align: center;
+    }
+    .container{
+        margin-bottom: 40px;
+        margin-top: 35px;
+    }
+    p{
+        font-size: 20px;
+    }
+    img{
+        width: 30px;
+        float: left;
+        cursor: pointer;
+    }
+
+</style>
+
+
+<div class="container">
+    <div class="accordion" id="accordion">
+
+                <div class="card m-2">
+                    {% for member in new_member %}
+                    <div class="card-header">
+                      <a href="/delete/{{member.id}}"><img src="{{url_for('static', filename='icons/trash-alt-regular.svg')}}" alt=""></a>  
+                      
+                       <a href="#{{member.name[0]}}" class="btn" data-bs-toggle="collapse"> <h4>{{member.name}}</h4></a>
+                    </div>
+
+                    <div id="{{member.name[0]}}" class="collapse show" data-bs-toggle="#accordion">
+                        <div class="card-content">
+                            <p class="p-2">Name: {{member.name}}</p>
+                            <p class="p-2">Email: {{member.email}}</p>
+                            <p class="p-2">Class: {{member.clas}}</p>
+                            <p class="p-2">GrNo.: {{member.gr_no}}</p>
+                            <p class="p-2">PhoneNumber: {{member.phone}}</p>
+                            <hr>
+                 <br>
+                    <label for="header">Why do you want to join the club?</label>
+                            <p>{{member.question_1}}</p>
+                <br>
+                    <label for="header">How will you benefit the club?</label>
+                            <p>{{member.question_2}}</p>
+                <br>
+                    <label for="header">What are you aspiring to achieve from the club?</label>
+                            <p>{{member.question_3}}</p>
+
+                <br>
+                <hr>
+                <br>
+                        <label for="header">What is Your level of IT Knowledge?</label>
+                        <p>{{member.level}}</p>
+                        </div> 
+                    </div>
+
+
+                    {% endfor %}
+
+          </div>
+    </div>
+    
+</div>
+
+
+
+{% endblock %}

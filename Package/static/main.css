@@ -23,8 +23,10 @@ nav{
 .navbar-nav .nav-item .nav-link.home{
     font-weight: bold;
 }
-form .gallery{
-    width: 14em;
+a .admin{
+    width: 10em;
+    margin-left: -14px;
+    color: #fff;
     height: 3em;
 }
 .content{
