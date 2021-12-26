@@ -1,5 +1,5 @@
-from logging import log
-from flask import Flask, render_template,redirect,url_for, request,g,session
+
+from flask import Flask, render_template,redirect,url_for, request,session
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -16,8 +16,8 @@ class Member(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     name = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(50), nullable=False)
-    clas = db.Column(db.String(6), nullable=False)
-    gr_no = db.Column(db.String(6), nullable=False)
+    clas = db.Column(db.String(5), nullable=False)
+    gr_no = db.Column(db.String(5), nullable=False)
     phone = db.Column(db.String(7), nullable=False)
 
     question_1 = db.Column(db.String(400),nullable=False)
@@ -33,7 +33,15 @@ class Admin:
 
 
 president = Admin("user","password")
+vice = Admin("vice", "pass")
 username = president.username
+
+# class Executives:
+#     def __init__(self,img,name,post,active=bool):
+#         self.img = img
+#         self.name = name
+#         self.post = post
+#         self.active = active
 
 
 logged_in = False
@@ -47,7 +55,7 @@ def home():
 #member form route ============================================
 @app.route("/join", methods=["GET", "POST"])
 def join():
-    # fetching form inputs from our join site
+    # fetching form inputs from our join site ===========================================
     if request.method=="POST":
         name = request.form.get("Name")
         email = request.form.get("Email")
@@ -81,7 +89,7 @@ def admin():
         if username == user and president.password == password:
             global logged_in
             logged_in = True
-            session["username"] = user
+            #session["username"] = user
             return redirect(next_url)
             #return redirect(url_for("home"))
     return render_template('admin_login.html', title="Admin Login")
@@ -89,14 +97,14 @@ def admin():
 #members route======================================
 @app.route("/members_info", methods=["POST", "GET"])
 def members_info():
-    global logged_in
-    if logged_in == False:
-        return redirect(url_for("admin"))
-    else:
+    # global logged_in
+    # if logged_in == False:
+    #     return redirect(url_for("admin"))
+    # else:
         # fetching all the registered members from our db       
-        new_member = Member.query.all()
-        logged_in = not logged_in
-        return render_template("members.html", new_member=new_member)
+    new_member = Member.query.all()
+    #logged_in = not logged_in
+    return render_template("members.html", new_member=new_member)
 
 #delete route ==============================================
 @app.route("/delete/<int:member_id>")

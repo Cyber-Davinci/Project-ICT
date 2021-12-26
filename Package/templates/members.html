@@ -8,64 +8,194 @@
     .container{
         margin-bottom: 40px;
         margin-top: 35px;
+
+        
     }
+    .container ul{
+        margin-left: -30px;
+    }
+    #search-input{
+        line-height: 40px;
+    }
+
     p{
         font-size: 20px;
+        background-color: #eee;
+        line-height: 50px;
+        padding-left: 10px;
+    
+    }
+    p:nth-child(odd){
+        background-color: #ddd;
+    }
+    label{
+        font-weight: bold;
+        text-align: center;
+        padding-left: 5px;
+        font-family: monospace;
     }
     img{
         width: 30px;
         float: left;
         cursor: pointer;
     }
+    li{
+        text-decoration: none;
+        text-decoration-style: none;
+    }
+    ul{
+        list-style-type: none;
+    }
+    .warning{
+    width: 400px;
+    text-align: center;
+    border: 1px solid;
+    margin: 40px auto;
+    margin-top: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #c9c9c9;
+    display: none;
+    transition: all .7s ease-in-out .3s;
+}
+
+.warning a{
+    margin: 10px 30px 0 30px;
+    border-radius: 4px;
+    border: none;
+    padding: 5px;
+    transition: all .5s ease-in-out;
+    outline: none;
+}
 
 </style>
 
 
 <div class="container">
+
+
     <div class="accordion" id="accordion">
-
-                <div class="card m-2">
-                    {% for member in new_member %}
-                    <div class="card-header">
-                      <a href="/delete/{{member.id}}"><img src="{{url_for('static', filename='icons/trash-alt-regular.svg')}}" alt=""></a>  
-                      
-                       <a href="#{{member.name[0]}}" class="btn" data-bs-toggle="collapse"> <h4>{{member.name}}</h4></a>
-                    </div>
-
-                    <div id="{{member.name[0]}}" class="collapse show" data-bs-toggle="#accordion">
-                        <div class="card-content">
-                            <p class="p-2">Name: {{member.name}}</p>
-                            <p class="p-2">Email: {{member.email}}</p>
-                            <p class="p-2">Class: {{member.clas}}</p>
-                            <p class="p-2">GrNo.: {{member.gr_no}}</p>
-                            <p class="p-2">PhoneNumber: {{member.phone}}</p>
-                            <hr>
-                 <br>
-                    <label for="header">Why do you want to join the club?</label>
-                            <p>{{member.question_1}}</p>
-                <br>
-                    <label for="header">How will you benefit the club?</label>
-                            <p>{{member.question_2}}</p>
-                <br>
-                    <label for="header">What are you aspiring to achieve from the club?</label>
-                            <p>{{member.question_3}}</p>
-
-                <br>
-                <hr>
-                <br>
-                        <label for="header">What is Your level of IT Knowledge?</label>
-                        <p>{{member.level}}</p>
-                        </div> 
-                    </div>
-
-
-                    {% endfor %}
+        <div class="form-outline mb-4">
+            <input type="search" class="form-control" id="search-input" placeholder="search by username...">
 
           </div>
+          <ul id="members"> 
+            {% for member in new_member %}
+            <div class="warning"> <p>Are u sure You want to delete user</p> 
+                <a href="/delete/{{member.id}}" type="button" id="proceed" class="proceed">Proceed </a>  
+        
+                <a href="#" type="button" id="cancel" class="cancel">Cancel</a>
+            </div>
+        
+            <li class="member">
+                <div class="card mb-3" id="card">
+    
+                    <div class="card-header">
+                        <a href="" class="delete"><img src="{{url_for('static', filename='icons/trash-alt-regular.svg')}}" alt="" class="trash"></a>  
+                        
+                       <a href="#{{member.name[0]}}" class="btn aTag" data-bs-toggle="collapse" id="a_tag">
+                            <h4 class="memberName"  value="{{member.name}}">{{member.name}}</h4>
+                           
+                        </a>
+                    </div> 
+        
+                    <div id="{{member.name[0]}}" class="collapse show" data-bs-toggle="#accordion">
+                        <div class="card-content">
+                            <p class="p-2">Name: <span>{{member.name}} </span></p>
+                            <p class="p-2">Email: <span>{{member.email}}</span> </p>
+                            <p class="p-2">Class: <span>{{member.clas}}</span> </p>
+                            <p class="p-2">GrNo.: <span>{{member.gr_no}}</span></p>
+                            <p class="p-2">PhoneNumber: <span>{{member.phone}}</span></p>
+                            <hr>
+                         <br>
+                            <label for="header">Why do you want to join the club?</label>
+                                    <p>{{member.question_1}}</p>
+                        <br>
+                            <label for="header">How will you benefit the club?</label>
+                                    <p>{{member.question_2}}</p>
+                        <br>
+                            <label for="header">What are you aspiring to achieve from the club?</label>
+                                    <p>{{member.question_3}}</p>
+        
+                        <br>
+                        <hr>
+                        <br>
+                            <label for="header">What is Your level of IT Knowledge?</label>
+                            <p>{{member.level}}</p>
+                        </div> 
+                        
+                 </div>
+                            
+                  </div>
+            </li>
+          
+              {% endfor %}
+          </ul>
+       
     </div>
     
 </div>
 
+<script>
+    let searchInput = document.getElementById("search-input")
+    searchInput.addEventListener("keyup",searchMember)
 
+    function searchMember(){
+        //get the value of the what ever we typed in to our search bar and setting the characters to upper case
+        filteredValue = searchInput.value.toUpperCase()
+
+        //members stores the ul element
+        let members = document.getElementById("members")
+        //member stores the li element
+        let member = members.querySelectorAll("li.member")
+  
+
+        //we loop through the length of our li
+        for(let i=0;i<member.length;i++){
+        //member_header stores the active or current header name which is the same as member username
+            let member_header = member[i].getElementsByTagName("h4")[0]
+            //check if the letters typed in our search bar matched the a name 
+          
+           if(member_header.innerHTML.toUpperCase().indexOf(filteredValue) > -1){
+ 
+                //points to the last parent element of the h4 so we can style its display
+                // if there's a match display will be set to nothing so it will stay, its basically same as setting display to block
+                
+                member_header.parentElement.parentElement.parentElement.parentElement.style.display = "block"
+                
+            }
+            else{
+                //if no match is found display will be set to none 
+               member_header.parentElement.parentElement. parentElement.parentElement.style.display = "none"
+            }
+        }
+
+    }
+
+let warning = document.querySelector(".warning")
+let del = document.querySelector(".delete")
+
+warning.addEventListener("click", deleteMember)
+del.addEventListener("click", delete_func)
+
+function delete_func(e){
+    if(e.target.classList.contains("trash")){
+        e.preventDefault()
+
+        let warn = document.querySelector(".warning")
+            warn.style.display  = "block"
+    }
+}
+
+function deleteMember(e){
+    if(e.target.classList.contains("cancel")){
+        let warn = document.querySelector(".warning")
+            warn.style.display  = "none"
+
+    }
+}
+
+
+</script>
 
 {% endblock %}

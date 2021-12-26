@@ -127,6 +127,12 @@ section{
     color: honeydew;
 }
 
+.executives .section-header h2{
+    font-size: 28px;
+    color: aliceblue;
+
+}
+
 .carousel .card{
     background-color: #293745;
     border-top: 4px solid #dee4e3;
